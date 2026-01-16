@@ -14,7 +14,7 @@ A comprehensive personal finance management application built with C++ and Qt fr
 
 Watch a full walkthrough of the Finance Tracker application here:
 
-**[CS3307 - Deliverable 3 Project Video (full project)](https://youtu.be/zV34plTpKbc)**
+**[CS3307 - Project Video (full project)](https://youtu.be/zV34plTpKbc)**
 
 ## Technologies Used
 
