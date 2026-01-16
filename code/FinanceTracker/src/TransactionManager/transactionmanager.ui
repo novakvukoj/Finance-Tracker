@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TransactionManager</class>
+ <widget class="QWidget" name="TransactionManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TransactionManager</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+TransactionManager { background-color: #e8f5e9; }
+QGroupBox { background-color: white; border: 1px solid #c8e6c9; border-radius: 8px; margin-top: 10px; padding: 10px; font-weight: bold; }
+QLineEdit, QDoubleSpinBox, QDateEdit, QComboBox { background-color: #f9fff9; border: 1px solid #a5d6a7; border-radius: 4px; padding: 4px; color: black; }
+QPushButton { background-color: #43a047; color: white; font-weight: bold; border-radius: 6px; padding: 6px 10px; }
+QPushButton:hover { background-color: #2e7d32; }
+QListWidget { background-color: white; border: 1px solid #c8e6c9; border-radius: 8px; }
+QLabel { color: black; }
+QCalendarWidget {
+    border: 1px solid #81c784;
+    border-radius: 8px;
+    background-color: white;
+}
+
+/* Ensure day numbers stay visible */
+QCalendarWidget {
+    border: 1px solid #81c784;
+    border-radius: 8px;
+    background-color: white;
+}
+
+/* Day numbers */
+QCalendarWidget QAbstractItemView {
+    background-color: white;
+    color: black;
+    selection-background-color: #a5d6a7;
+    selection-color: black;
+}
+
+/* Month + Year label */
+QCalendarWidget QToolButton {
+    color: black;
+}
+
+/* Month dropdown popup */
+QCalendarWidget QMenu {
+    background-color: white;
+    color: black;
+}
+
+QCalendarWidget QMenu::item:selected {
+    background-color: #a5d6a7;
+    color: black;
+}
+
+
+   </string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="headerLayout">
+     <item>
+      <widget class="QPushButton" name="homeBtn">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>🏠</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="titleLabel">
+       <property name="font">
+        <font>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>💰 Manage Transactions</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignHCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="rightSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>50</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="transactionGroup">
+     <property name="title">
+      <string>New Transaction Details</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="amountLabel">
+        <property name="text">
+         <string>💵 Amount:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QDoubleSpinBox" name="transactionAmountInput">
+        <property name="keyboardTracking">
+         <bool>true</bool>
+        </property>
+        <property name="decimals">
+         <number>2</number>
+        </property>
+        <property name="minimum">
+         <double>0.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>1000000.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="dateLabel">
+        <property name="text">
+         <string>📅 Date:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDateEdit" name="transactionDateInput">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="targetTypeLabel">
+        <property name="text">
+         <string>🎯 Apply To:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="transactionTargetTypeInput">
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+    color: black;
+    background-color: #f9fff9;
+}
+QComboBox QAbstractItemView {
+    background-color: white;
+    color: black;
+    selection-background-color: #a5d6a7;
+}
+</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Goal</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>All Goals</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Category</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="categoryGoalLabel">
+        <property name="text">
+         <string>📂 Category / Goal:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="transactionCategoryGoalInput"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="buttonLayout">
+     <item>
+      <widget class="QPushButton" name="addTransactionBtn">
+       <property name="text">
+        <string>➕ Add Transaction</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deleteTransactionBtn">
+       <property name="text">
+        <string>🗑 Delete Selected</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="clearFieldsBtn">
+       <property name="text">
+        <string>🧹 Clear Fields</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QListWidget" name="transactionListWidget">
+     <property name="styleSheet">
+      <string notr="true">QListWidget {
+    background-color: #f9fff9;
+    color: black;
+    border: 1px solid #a5d6a7;
+    border-radius: 6px;
+}
+
+QListWidget::item {
+    color: black;
+    padding: 4px;
+}
+
+QListWidget::item:selected {
+    background-color: #a5d6a7;
+    color: black;
+}
+</string>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>false</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
